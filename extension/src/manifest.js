@@ -14,35 +14,37 @@ export default defineManifest({
     48: 'img/logo-48.png',
     128: 'img/logo-128.png',
   },
-  action: {
-    default_popup: 'popup.html',
-    default_icon: 'img/logo-48.png',
-  },
-  options_page: 'options.html',
-  devtools_page: 'devtools.html',
-  background: {
-    service_worker: 'src/background/index.js',
-    type: 'module',
-  },
+  background: {  },
   content_scripts: [
     {
-      matches: ['http://*/*', 'https://*/*'],
-      js: ['src/contentScript/index.js'],
-      run_at: "document_idle",
-      all_frames: true,
+      matches: [
+        // 'https://*/*',
+        "https://*.1688.com/*",
+        "https://*.taobao.com/*",
+        "https://*.tmall.com/*",
+        "https://*.tmall.hk/*",
+      ],
+      js: [
+        'src/index.jsx',
+      ],
+      type: 'module',
+      run_at: "document_start",
     },
   ],
-  side_panel: {
-    default_path: 'sidepanel.html',
-  },
   web_accessible_resources: [
     {
       resources: ['img/logo-16.png', 'img/logo-34.png', 'img/logo-48.png', 'img/logo-128.png'],
       matches: [],
     },
   ],
-  permissions: ['sidePanel', 'storage'],
+  permissions: ['storage', 'webRequest', 'declarativeNetRequest', 'declarativeNetRequestFeedback'],
+  host_permissions: [
+    "https://*.taobao.com/*",
+    "https://*.1688.com/*",
+    "https://*.tmall.com/*",
+    "https://*.tmall.hk/*",
+  ],
   chrome_url_overrides: {
-    newtab: 'newtab.html',
+    newtab: 'index.html',
   },
 })

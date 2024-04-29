@@ -1,0 +1,44 @@
+#vitexpress_toolbar {
+    width: 100%;
+    background-color: white;
+    margin-bottom: 1px;
+
+    .ant-menu.ant-menu-root {
+        width: 100%;
+        max-width: 1190px;
+        margin: auto;
+    }
+}
+
+#vitexpress_cart {
+    button {
+        margin-top: 23px;
+        width: 40%;
+        background: linear-gradient(90deg, rgb(255, 119, 0), rgb(255, 73, 0));
+        box-shadow: rgba(255, 119, 0, 0.2) 0px 9px 13px 0px;
+        vertical-align: top;
+        border-radius: 34px;
+        outline: 0;
+        font-family: PingFang SC;
+        border: 0;
+        cursor: pointer;
+        height: 48px;
+        line-height: 22px;
+        text-align: center;
+        display: inline;
+        font-size: 16px;
+        font-weight: bold;
+        color: rgb(255, 255, 255);
+        font-family: PingFang SC;
+    }
+}
+
+.ant-menu-submenu-popup {
+    z-index: 9999;
+}
+
+.order-button-wrapper {
+    #vitexpress_cart {
+        width: 100%;
+    }
+}
